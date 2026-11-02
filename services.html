@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Motion Capitals</title>
+    <!-- Importing Montserrat font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Variables for consistent coloring */
+        :root {
+            --primary-dark: #0a192f;
+            --secondary-dark: #112240;
+            --accent-gold: #f9c846;
+            --text-light: #ffffff;
+            --text-gray: #a8b2d1;
+            --text-dark: #2d3748;
+            --bg-light: #f6f8fb;
+        }
+
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.3s ease;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            background-color: #e5b63b;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--primary-dark);
+            padding: 20px 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        /* LOGO CSS: Adjust the max-height to fit your specific logo perfectly */
+        .logo-img {
+            max-height: 45px; 
+            width: auto;
+            display: block;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav a.active {
+            color: var(--accent-gold);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-gold);
+        }
+
+        /* --- PAGE HERO SECTION --- */
+        .page-hero {
+            background: linear-gradient(rgba(10, 25, 47, 0.6), rgba(10, 25, 47, 0.8)), 
+                        url('shjgyutrbv.jpeg') center/cover no-repeat;
+            padding: 90px 0;
+        }
+
+        .page-hero h1 {
+            color: var(--text-light);
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .breadcrumb {
+            color: var(--text-light);
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .breadcrumb span {
+            margin: 0 8px;
+            color: var(--text-gray);
+        }
+
+        /* --- SERVICES MAIN CONTENT --- */
+        .services-section {
+            padding: 70px 0 90px;
+        }
+
+        .section-header {
+            max-width: 800px;
+            margin-bottom: 50px;
+        }
+
+        .section-tagline {
+            color: var(--accent-gold);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .section-header h2 {
+            color: var(--primary-dark);
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* --- SERVICES GRID --- */
+        .services-grid-6 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-item {
+            background-color: var(--bg-light);
+            padding: 40px 30px;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .icon-circle {
+            width: 55px;
+            height: 55px;
+            background-color: #fdf2d1; 
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .icon-circle i {
+            color: var(--primary-dark);
+            font-size: 24px;
+            position: absolute;
+            text-shadow: 2px 2px 0px rgba(249, 200, 70, 0.5); 
+        }
+
+        .service-item h3 {
+            color: var(--primary-dark);
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .service-item p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* --- CTA BANNER --- */
+        .cta-banner {
+            background: linear-gradient(90deg, rgba(10, 25, 47, 0.85) 0%, rgba(14, 52, 107, 0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop') left center/cover no-repeat;
+            padding: 60px 0;
+            margin-top: 20px;
+        }
+
+        .cta-banner .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cta-text h2 {
+            color: var(--text-light);
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .cta-text p {
+            color: var(--text-light);
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-dark);
+            padding: 40px 0 20px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        footer nav ul {
+            gap: 25px;
+        }
+
+        footer nav a {
+            color: var(--text-gray);
+            font-size: 13px;
+        }
+
+        footer nav a:hover {
+            color: var(--text-light);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: var(--text-light);
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .copyright {
+            color: #6a7b9c;
+            font-size: 12px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <!-- Logo inserted here -->
+                <img src="logo-01.png" alt="Motion Capitals Logo" class="logo-img">
+            </a>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li> 
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Hero Section -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Our Services</h1>
+                <div class="breadcrumb">
+                    Home <span>&gt;</span> Services
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Grid Section -->
+        <section class="services-section">
+            <div class="container">
+                
+                <div class="section-header">
+                    <span class="section-tagline">Tailored Solutions</span>
+                    <h2>Comprehensive Financial Solutions</h2>
+                    <p>At Motion Capitals, we offer a range of financial services designed to help you grow, protect, and manage your wealth effectively.</p>
+                </div>
+
+                <div class="services-grid-6">
+                    
+                    <!-- Card 1 -->
+                    <div class="service-item">
+                        <div class="icon-circle">
+                            <i class="fa-solid fa-chart-simple"></i>
+                        </div>
+                        <h3>Investment Advisory</h3>
+                        <p>Expert advice to help you build and grow your wealth.</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="service-item">
+                        <div class="icon-circle">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <h3>Wealth Management</h3>
+                        <p>Comprehensive wealth management strategies for long-term success.</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="service-item">
+                        <div class="icon-circle">
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+                        </div>
+                        <h3>Financial Planning</h3>
+                        <p>Personalized plans to achieve your financial goals.</p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="service-item">
+                        <div class="icon-circle">
+                            <i class="fa-regular fa-building"></i>
+                        </div>
+                        <h3>Business Finance</h3>
+                        <p>Funding solutions to support your business growth.</p>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="service-item">
+                        <div class="icon-circle">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </div>
+                        <h3>Retirement Planning</h3>
+                        <p>Secure your future with customized retirement strategies.</p>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="service-item">
+                        <div class="icon-circle">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3>Risk Management</h3>
+                        <p>Protect what matters with comprehensive risk solutions.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom CTA Banner -->
+        <section class="cta-banner">
+            <div class="container">
+                <div class="cta-text">
+                    <h2>Need a Financial Partner?</h2>
+                    <p>Let us help you achieve your financial goals with our expert services.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <a href="index.html" class="logo">
+                    <!-- Logo inserted here -->
+                    <img src="logo-01.png" alt="Motion Capitals Logo" class="logo-img">
+                </a>
+                
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contactus.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2024 Motion Capitals (PTY) Ltd. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

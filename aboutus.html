@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Motion Capitals</title>
+    <!-- Importing Montserrat font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-dark: #0a192f;
+            --secondary-dark: #112240;
+            --accent-gold: #f9c846;
+            --text-light: #ffffff;
+            --text-gray: #a8b2d1;
+            --text-dark: #2d3748;
+            --bg-light: #f4f7fa;
+        }
+
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            background-color: #e5b63b;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--primary-dark);
+            padding: 20px 0;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        /* LOGO CSS: Adjust height if needed */
+        .logo-img {
+            max-height: 45px; 
+            width: auto;
+            display: block;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav a.active {
+            color: var(--accent-gold);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-gold);
+        }
+
+        /* --- PAGE HERO SECTION --- */
+        .page-hero {
+            background: linear-gradient(rgba(10, 25, 47, 0.4), rgba(10, 25, 47, 0.7)), 
+                        url('hyfgh.jpeg') center/cover no-repeat;
+            padding: 100px 0 120px;
+        }
+
+        .page-hero h1 {
+            color: var(--text-light);
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .page-hero p {
+            color: var(--text-light);
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        /* --- ABOUT INTRO SECTION --- */
+        .about-intro {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+
+        .about-intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .intro-tagline {
+            color: var(--accent-gold);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .intro-content h2 {
+            color: var(--primary-dark);
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .intro-content p {
+            color: var(--text-dark);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .intro-content .btn {
+            margin-top: 10px;
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* --- MISSION, VISION, VALUES SECTION --- */
+        .mvv-section {
+            padding: 0 0 80px 0;
+            background-color: #ffffff;
+        }
+
+        .mvv-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .mvv-card {
+            background-color: var(--bg-light);
+            padding: 40px;
+            border-radius: 8px;
+            height: 100%;
+        }
+
+        .mvv-card h3 {
+            color: var(--primary-dark);
+            font-size: 22px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .mvv-card p {
+            color: var(--text-dark);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .mvv-card ul {
+            list-style-type: none;
+        }
+
+        .mvv-card ul li {
+            color: var(--secondary-dark);
+            font-size: 15px;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-dark);
+            padding: 30px 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer nav ul {
+            gap: 25px;
+        }
+
+        footer nav a {
+            color: var(--text-gray);
+            font-size: 13px;
+        }
+
+        footer nav a:hover {
+            color: var(--text-light);
+        }
+
+        .footer-tagline {
+            color: var(--text-gray);
+            font-size: 12px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <!-- Header Logo Inserted Here -->
+                <img src="logo-01.png" alt="Motion Capitals Logo" class="logo-img">
+            </a>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutus.html" class="active">About Us</a></li> 
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Hero Section -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>About Us</h1>
+                <p>Our story, mission and vision</p>
+            </div>
+        </section>
+
+        <!-- About Intro Section -->
+        <section class="about-intro">
+            <div class="container">
+                <div class="about-intro-grid">
+                    
+                    <div class="intro-content">
+                        <div class="intro-tagline">Who We Are</div>
+                        <h2>Motion Capitals (PTY) Ltd</h2>
+                        <p>Motion Capitals (PTY) Ltd is a trusted financial services company dedicated to delivering innovative and personalised solutions. We help individuals, businesses and communities build wealth, manage risk and achieve long-term financial success.</p>
+                        <p>With a team of experienced professionals, we combine global expertise with local insight to provide practical and sustainable financial solutions.</p>
+                    </div>
+
+                    <div class="intro-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop" alt="Business planning and analytics">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission, Vision, Values Section -->
+        <section class="mvv-section">
+            <div class="container">
+                <div class="mvv-grid">
+                    
+                    <!-- Mission Card -->
+                    <div class="mvv-card">
+                        <h3>Our Mission</h3>
+                        <p>To empower our clients with trusted financial solutions that drive growth, create value and secure a better future.</p>
+                    </div>
+
+                    <!-- Vision Card -->
+                    <div class="mvv-card">
+                        <h3>Our Vision</h3>
+                        <p>To be a leading financial services provider, recognised for excellence, integrity and lasting impact in the communities we serve.</p>
+                    </div>
+
+                    <!-- Values Card -->
+                    <div class="mvv-card">
+                        <h3>Our Values</h3>
+                        <ul>
+                            <li>Integrity</li>
+                            <li>Excellence</li>
+                            <li>Innovation</li>
+                            <li>Client Focus</li>
+                            <li>Sustainability</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <!-- Footer Logo Inserted Here -->
+                <img src="logo-01.png" alt="Motion Capitals Logo" class="logo-img">
+            </a>
+            
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-tagline">
+                Building a stronger financial tomorrow
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
